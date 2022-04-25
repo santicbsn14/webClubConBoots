@@ -1,0 +1,26 @@
+.cabecera{
+    background-color: red;
+    position: relative;
+}
+
+.logoP{
+height: 50px;
+border-radius: 20px;
+}
+.bar-top-social{
+    color: black;
+        padding: 20px 15px 20px 25px;
+        float: right;
+        position: relative;
+        top: auto;
+        left: auto;
+}
+
+section{
+    height: 500px;
+    background-color: white;
+    padding-top: 30px;
+}
+section img{
+    height: 400px;
+}
