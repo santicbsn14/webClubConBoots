@@ -1,21 +1,26 @@
+
 .cabecera{
-    background-color: red;
+    background-image: linear-gradient(to left, red, yellow);
     position: relative;
 }
-
+h1{
+    color: red;
+}
 .logoP{
 height: 50px;
 border-radius: 20px;
 }
 .bar-top-social{
-    color: black;
         padding: 20px 15px 20px 25px;
         float: right;
         position: relative;
         top: auto;
         left: auto;
 }
-
+.redes{
+    display: flex;
+    justify-content: space-evenly;
+}
 section{
     height: 500px;
     background-color: white;
@@ -23,4 +28,39 @@ section{
 }
 section img{
     height: 400px;
+} 
+footer{
+    position: absolute;
+    bottom: 0px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+    ". contactate ."
+    ". redes .";
+    padding: 0px 0px 0px 0px;
+    background-color: red;
+}
+.redesFooter{
+    grid-area: redes;
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; 
+    grid-template-areas: 
+    ". whatsapp instagram facebook ubicacion ."; 
+    justify-items: end;
+}
+.fa-brands fa-whatsapp{
+    grid-area: whatsapp;
+}
+.fa-brands fa-instagram{
+    grid-area: instagram;
+}
+.fa-solid fa-location-pin{
+    grid-area: ubicacion;
+}
+.textitoVo{
+grid-area: contactate;
+}
+a{
+    color: black;
 }
