@@ -1,6 +1,9 @@
-
+body{
+    height: 1300px;
+    position: relative;
+}
 .cabecera{
-    background-image: linear-gradient(to left, red, yellow);
+    background-color: red;
     position: relative;
 }
 h1{
@@ -11,11 +14,11 @@ height: 50px;
 border-radius: 20px;
 }
 .bar-top-social{
-        padding: 20px 15px 20px 25px;
-        float: right;
-        position: relative;
-        top: auto;
-        left: auto;
+    padding: 20px 15px 20px 25px;
+    float: right;
+    position: relative;
+    top: auto;
+    left: auto;
 }
 .redes{
     display: flex;
@@ -29,19 +32,26 @@ section{
 section img{
     height: 400px;
 } 
+/* footer */
 footer{
     position: absolute;
     bottom: 0px;
     display: grid;
+    align-items: center;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr;
     grid-template-areas:
-    ". contactate ."
-    ". redes .";
+    "logoFooter datosUbi redes";
     padding: 0px 0px 0px 0px;
     background-color: red;
 }
+.logoFooter{
+    border-radius: 80px;
+    height: 80px;
+    grid-area: logoFooter;
+}
 .redesFooter{
+    list-style: none;
     grid-area: redes;
     display: grid; 
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; 
@@ -58,9 +68,30 @@ footer{
 .fa-solid fa-location-pin{
     grid-area: ubicacion;
 }
-.textitoVo{
-grid-area: contactate;
+.datosUbi{
+    grid-area: datosUbi;
+    color: white;
 }
 a{
     color: black;
+}
+/* contacto */
+main{
+    position: relative;
+}
+.formulario{
+    position: absolute;
+    height: 150px;
+    width: 800px;
+    right: 50px;
+}
+.datosUbicacion{
+position: absolute;
+left: 20px;
+}
+.datosUbicacion h2{
+    color: red;
+}
+.message{
+    height: 110px;
 }
