@@ -1,0 +1,21 @@
+main{
+    position: relative;
+}
+.formulario{
+    position: absolute;
+    height: 150px;
+    width: 800px;
+    right: 50px;
+    grid-area: formulario;
+}
+.datosUbicacion{
+position: absolute;
+left: 20px;
+grid-area: datos;
+}
+.datosUbicacion h2{
+    color: red;
+}
+.message{
+    height: 110px;
+}
