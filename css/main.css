@@ -1,23 +1,35 @@
-main {
-  position: relative; }
+.mainContacto {
+  position: relative;
+  top: 80px; }
 
 .formulario {
-  position: absolute;
   height: 150px;
   width: 800px;
-  right: 50px;
-  grid-area: formulario; }
+  position: relative;
+  left: 500px;
+  bottom: 420px; }
 
 .datosUbicacion {
-  position: absolute;
+  position: relative;
   left: 20px;
-  grid-area: datos; }
+  height: 400px;
+  width: 30%; }
 
 .datosUbicacion h2 {
   color: red; }
 
 .message {
   height: 110px; }
+
+.mapaUbi {
+  position: relative;
+  left: 0px;
+  width: 400px; }
+
+@media only screen and (max-width: 768px) {
+  .section {
+    display: flex;
+    flex-direction: column; } }
 
 footer {
   position: absolute;
@@ -67,3 +79,52 @@ a {
   height: 250px;
   background-image: url(../imagenes/30demayo.jpg);
   background-position: center; }
+
+.navbar-nav.navbar-center {
+  position: absolute;
+  left: 50%;
+  transform: translatex(-50%);
+  bottom: 0px;
+  background-color: white; }
+
+.barraNav {
+  height: 120px;
+  width: 100%;
+  top: 0px; }
+
+.logoP {
+  height: 70px;
+  position: relative;
+  left: 650px;
+  bottom: 15px; }
+
+.logoGmail {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  right: 10px;
+  bottom: 15px; }
+
+.tituloIndex {
+  color: red;
+  text-align: center;
+  position: relative; }
+
+.portadaHistoria {
+  height: 400px; }
+
+.tituloHistoria {
+  color: red; }
+
+.pieTexto {
+  color: black;
+  font-size: 16px;
+  text-align: left;
+  left: 4px; }
+
+.contenedor {
+  position: relative;
+  width: 70%; }
+
+.subTitulos {
+  color: red; }
