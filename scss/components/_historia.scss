@@ -1,8 +1,7 @@
-.portadaHistoria{
-    height: 400px ;
-}
+@import "../base/variables";
 .tituloHistoria{
-    color: red;
+    color: $color-principal;
+    font-size: map-get($tamanio-tipografia,titulos);
 }
 .pieTexto{
     color: black;
@@ -10,11 +9,26 @@
     text-align: left;
     left: 4px;
 }
-.contenedor{
-    position: relative;
-    width: 70%;
-    
-}
 .subTitulos{
-    color: red;
+    color: $color-principal;
+}
+.titulosAside{
+    color: $color-principal;
+}
+.mainHIstoria p{
+    font-size: map-get($tamanio-tipografia, parrafo );
+}
+.datosCom  {
+    color: grey;
+    font-size: map-get($tamanio-tipografia, parrafo );
+}
+@media only screen and (max-width:768px){
+    .datosCom{
+    position: relative;
+    margin-bottom: 150px;
+    }
+    .mainHIstoria{
+        margin-left: 3px;
+        margin-right: 3px;
+    }
 }

@@ -1,23 +1,7 @@
-
-.mainContacto{
-    position: relative;
-    top: 80px;
-}
-.formulario{
-    height: 150px;
-    width: 800px;
-    position: relative;
-    left: 500px;
-    bottom: 420px;
-}
-.datosUbicacion{
-    position: relative;
-    left: 20px;
-    height: 400px;
-    width: 30%;
-}
+@import "../base/variables";
 .datosUbicacion h2{
-    color: red;
+    color: $color-principal;
+    font-size: map-get($tamanio-tipografia,titulos );
 }
 .message{
     height: 110px;
@@ -26,10 +10,4 @@
     position: relative;
     left: 0px;
     width: 400px;
-}
-@media only screen and (max-width:768px){
-    .section{
-        display: flex;
-        flex-direction: column;
-    }
 }

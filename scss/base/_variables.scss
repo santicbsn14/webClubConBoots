@@ -1,0 +1,12 @@
+$color-principal: red;
+$tamanio-tipografia:(
+    titulos: 26px,
+    subtitulos: 20px,
+    parrafo: 14px,
+    letra-chica: 12px,
+);
+%listas-none{
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+};

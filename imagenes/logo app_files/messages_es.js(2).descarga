@@ -1,0 +1,86 @@
+"use strict";
+
+try {
+    angular.module("organizeMediaTranslations");
+} catch (e) {
+    angular.module("organizeMediaTranslations", [ "pascalprecht.translate" ]);
+}
+
+angular.module("organizeMediaTranslations").config([ "$translateProvider", function($translateProvider) {
+    var translations = {
+        "change-clipart": {
+            button: "Change clipart"
+        },
+        "change-shape": {
+            button: "Change shape"
+        },
+        "search-bar": {
+            placeholder: "Ingresa una palabra o frase para buscar un video"
+        },
+        "Search-other-videos": {
+            button: "Search other videos"
+        },
+        "from-vimeo": {
+            title: "Vimeo"
+        },
+        "search-video": {
+            text: "Buscar para encontrar los videos {{ source }}",
+            "no-results": "No se han encontrado resultados. Intenta buscar de nuevo."
+        },
+        "video-box": {
+            "play-settings": {
+                controls: {
+                    options: {
+                        always: "Siempre",
+                        "on-hover": "Al pasar el cursor",
+                        never: "Nunca"
+                    },
+                    title: "When are controls shown?"
+                },
+                loop: "In a loop",
+                autoplay: "Se están cargando las cargas automáticas",
+                title: "How does your video play?"
+            }
+        },
+        "media-settings": {
+            "media-title": {
+                title: "Título (texto alt.)"
+            },
+            types: {
+                images: "Images"
+            },
+            "link-label": "Enlace",
+            "image-settings": {
+                title: "Opciones de imagen"
+            },
+            "description-placeholder": "Describe tu imagen",
+            description: {
+                title: "Descripción"
+            },
+            "title-placeholder": "Agrega tu título aquí",
+            preview: "Vista previa"
+        },
+        search: {
+            from: "De:",
+            title: "Buscar Videos"
+        },
+        "from-youtube": {
+            title: "YouTube"
+        },
+        general: {
+            "add-more-button": "Agrega más",
+            "cancel-button": "Cancelar",
+            "no-link-hover": "Conectar",
+            "add-button": "Agregar",
+            "save-button": "Save",
+            "no-link": "No conectado",
+            "done-button": "Hecho",
+            "search-button": "Buscar"
+        }
+    };
+    $translateProvider.translations("es", translations);
+    $translateProvider.translations(translations);
+    if ($translateProvider.preferredLanguage) {
+        $translateProvider.preferredLanguage("es");
+    }
+} ]).value("preferredLanguage", "es");

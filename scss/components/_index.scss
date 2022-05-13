@@ -1,5 +1,4 @@
 .tituloIndex{
-    color: red;
-    text-align: center;
-    position: relative;
+    color: $color-principal;
+    font-size: map-get($tamanio-tipografia,titulos );
 }

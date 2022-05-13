@@ -1,42 +1,15 @@
 footer{
-    position: absolute;
-    bottom: 0px;
-    display: grid;
-    align-items: center;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
-    grid-template-areas:
-    "logoFooter datosUbi redes";
-    padding: 0px 0px 0px 0px;
-    background-color: red;
+    background-color: $color-principal;
 }
 .logoFooter{
     border-radius: 80px;
     height: 80px;
-    grid-area: logoFooter;
+//     grid-area: logoFooter;
 }
 .redesFooter{
-    list-style: none;
-    grid-area: redes;
-    display: grid; 
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; 
-    grid-template-areas: 
-    ". whatsapp instagram facebook ubicacion ."; 
-    justify-items: end;
+    @extend %listas-none;
 }
-.fa-brands fa-whatsapp{
-    grid-area: whatsapp;
-}
-.fa-brands fa-instagram{
-    grid-area: instagram;
-}
-.fa-solid fa-location-pin{
-    grid-area: ubicacion;
-}
-.datosUbi{
-    grid-area: datosUbi;
-    color: white;
-}
-a{
+.redesFooter a{
     color: black;
 }
+

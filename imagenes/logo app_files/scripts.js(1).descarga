@@ -1,0 +1,391 @@
+"use strict";
+
+try {
+    angular.module("jsSdkCommonsPreload");
+} catch (e) {
+    angular.module("jsSdkCommonsPreload", []);
+}
+
+angular.module("sdkCommonsConstants", []);
+
+angular.module("sdkCommons", [ "jsSdkCommonsPreload", "wixAngular", "wix.common.bi", "sdkCommonsConstants" ]).config([ "dashboardSdkProvider", function(dashboardSdkProvider) {
+    dashboardSdkProvider.registerHandler("openMediaDialog", "sdkMediaManager", "openMediaDialog", "Dashboard");
+    dashboardSdkProvider.registerHandler("getProducts", "sdkBilling", "getProducts", "Billing");
+    dashboardSdkProvider.registerHandler("superAppsOpenMediaDialog", "sdkMediaManager", "openAsSuperApp", "Settings");
+    dashboardSdkProvider.registerHandler("echo", "dashboardSdkEchoHandler");
+    dashboardSdkProvider.registerHandler("scrollTo", "dashboardSdkScrollToHandler");
+    dashboardSdkProvider.registerHandler("appEngaged", "sdkAppEngaged", "sendEngagedBI");
+} ]).config([ "wixBiLoggerProvider", function(wixBiLoggerProvider) {
+    wixBiLoggerProvider.setConfig({
+        eventMap: {
+            APP_ENGAGED: {
+                src: 75,
+                evid: 13,
+                adapter: "app-sdk"
+            }
+        }
+    });
+} ]);
+
+"use strict";
+
+(function() {
+    function DashboardSdk() {
+        var instanceInjector;
+        var namespaces = {};
+        var handlers = {
+            _getSdkNamespaces: function() {
+                return namespaces;
+            }
+        };
+        this.registerHandler = function(eventName, handlerServiceName, methodName, namespace) {
+            handlers[eventName] = function() {
+                if (instanceInjector.has(handlerServiceName)) {
+                    var handlerFunc = instanceInjector.get(handlerServiceName);
+                    if (methodName) {
+                        handlerFunc = handlerFunc[methodName].bind(handlerFunc);
+                    }
+                    handlerFunc.apply(this, arguments);
+                }
+            };
+            if (namespace) {
+                var currentNamespace = namespaces[namespace];
+                if (!currentNamespace) {
+                    namespaces[namespace] = {};
+                }
+                namespaces[namespace][methodName] = handlers[eventName];
+            }
+        };
+        this.registerDefaultHandlers = angular.noop;
+        this.$get = [ "$injector", function($injector) {
+            instanceInjector = $injector;
+            return handlers;
+        } ];
+        this.$get.$inject = [ "$injector" ];
+    }
+    angular.module("sdkCommons").provider("dashboardSdk", DashboardSdk);
+})();
+
+"use strict";
+
+var SdkConfigProvider = function() {
+    function SdkConfigProvider() {}
+    SdkConfigProvider.prototype.registerAppDefIdGetter = function(callback) {
+        this.appDefIdGetter = callback;
+    };
+    SdkConfigProvider.prototype.registerAppInstanceIdGetter = function(callback) {
+        this.appInstanceIdGetter = callback;
+    };
+    SdkConfigProvider.prototype.registerMediaGalleryUrlGetter = function(callback) {
+        this.mediaGalleryUrlGetter = callback;
+    };
+    SdkConfigProvider.prototype.isInvocable = function() {
+        return Array.isArray(this.mediaGalleryUrlGetter) || typeof this.mediaGalleryUrlGetter === "function";
+    };
+    SdkConfigProvider.prototype.$get = function($injector) {
+        var _this = this;
+        var fallbackUrl = "//static.parastorage.com/services/media-gallery-g5/libs-releases-local/";
+        return {
+            getAppDefId: function() {
+                return $injector.invoke(_this.appDefIdGetter);
+            },
+            getAppInstanceId: function() {
+                return $injector.invoke(_this.appInstanceIdGetter);
+            },
+            getMediaGalleryG5StaticsUrl: function() {
+                return _this.isInvocable() ? $injector.invoke(_this.mediaGalleryUrlGetter) : fallbackUrl;
+            }
+        };
+    };
+    SdkConfigProvider.prototype.$get.$inject = [ "$injector" ];
+    return SdkConfigProvider;
+}();
+
+angular.module("sdkCommons").provider("sdkConfig", SdkConfigProvider);
+
+"use strict";
+
+(function() {
+    SdkHandler.$inject = [ "$window", "dashboardSdk", "$rootScope" ];
+    function SdkHandler($window, dashboardSdk, $rootScope) {
+        var INTENTS = {
+            TPA_MESSAGE: "TPA2",
+            TPA_RESPONSE: "TPA_RESPONSE"
+        };
+        var compIds = {};
+        var allCompIds = false;
+        var isListening = false;
+        var messageHandlers = dashboardSdk;
+        function doesHandlerExist(type) {
+            return messageHandlers[type];
+        }
+        var isCorrectCompId = function(compId) {
+            return compIds[compId] || allCompIds;
+        };
+        function shouldHandleMessage(msg) {
+            if (msg && msg.intent === INTENTS.TPA_MESSAGE) {
+                return doesHandlerExist(msg.type) && isCorrectCompId(msg.compId);
+            }
+            return false;
+        }
+        function generateResponseFunction(event, msg) {
+            return function(data) {
+                try {
+                    event.source.postMessage(JSON.stringify({
+                        intent: INTENTS.TPA_RESPONSE,
+                        callId: msg.callId,
+                        type: msg.type,
+                        res: data,
+                        status: true
+                    }), "*");
+                } catch (e) {}
+            };
+        }
+        function handlePostMessage(event) {
+            var msg;
+            if (event && typeof event.data === "string") {
+                try {
+                    msg = JSON.parse(event.data);
+                } catch (e) {}
+            }
+            if (shouldHandleMessage(msg)) {
+                messageHandlers[msg.type](msg.data, generateResponseFunction(event, msg));
+            }
+        }
+        var removeListener = function() {
+            if (isListening) {
+                $window.removeEventListener("message", handlePostMessage);
+            }
+            isListening = false;
+        };
+        var addListener = function() {
+            if (!isListening) {
+                $window.addEventListener("message", handlePostMessage);
+                isListening = true;
+            }
+        };
+        this.init = function(compId) {
+            if (compId === void 0) {
+                compId = null;
+            }
+            if (!compId) {
+                allCompIds = true;
+            } else {
+                compIds[compId] = true;
+            }
+            addListener();
+        };
+        $rootScope.$on("$destroy", removeListener);
+        this.unload = function(compId) {
+            if (compId === void 0) {
+                compId = null;
+            }
+            if (!compId) {
+                allCompIds = false;
+            } else {
+                delete compIds[compId];
+            }
+            if (!allCompIds && Object.keys(compIds).length === 0) {
+                removeListener();
+            }
+        };
+    }
+    angular.module("sdkCommons").service("sdkHandler", SdkHandler);
+})();
+
+"use strict";
+
+var MediaGalleryHelper = function() {
+    function MediaGalleryHelper() {
+        this.visionsMap = {
+            faces: "face",
+            labels: "label",
+            dominantColors: "color",
+            cropHints: "crop_hint"
+        };
+    }
+    MediaGalleryHelper.prototype.convertToVision = function(option) {
+        return this.visionsMap[option];
+    };
+    MediaGalleryHelper.prototype.getVisionValue = function(imageAnalysis) {
+        var _this = this;
+        if (imageAnalysis === void 0) {
+            imageAnalysis = {};
+        }
+        return Object.keys(imageAnalysis).filter(function(option) {
+            return !!imageAnalysis[option] && !!_this.convertToVision(option);
+        }).map(function(option) {
+            return _this.convertToVision(option);
+        });
+    };
+    return MediaGalleryHelper;
+}();
+
+angular.module("sdkCommons").service("mediaGalleryHelper", MediaGalleryHelper);
+
+angular.module("sdkCommonsConstants").constant("premiumIntents", [ "NEUTRAL", "FREE", "PAID" ]);
+
+"use strict";
+
+angular.module("sdkCommons").service("dashboardSdkEchoHandler", function dashboardSdkEcho() {
+    return function(data, callback) {
+        callback(data);
+    };
+});
+
+"use strict";
+
+(function() {
+    SdkMediaManager.$inject = [ "MediaManager", "MediaManagerApi" ];
+    function SdkMediaManager(MediaManager, MediaManagerApi) {
+        var _this = this;
+        var restoreRelativeUri = function(items) {
+            return items.map(function(item) {
+                if (item.mediaType === "secure_music") {
+                    return item;
+                } else {
+                    return Object.assign({}, item, {
+                        relativeUri: item.uri
+                    });
+                }
+            });
+        };
+        var transformRawData = function(items) {
+            return items.map(function(rawData) {
+                var mediaItem = {};
+                mediaItem.fileName = rawData.title || "";
+                if (rawData.mediaType === "secure_music") {
+                    var audioFilesData = rawData.fileOutput && rawData.fileOutput.audio;
+                    var shortPreviewFileData = audioFilesData && audioFilesData.filter(function(file) {
+                        return file.tag === "preview-short";
+                    })[0];
+                    mediaItem.shortPreviewFileName = shortPreviewFileData && shortPreviewFileData.url || "";
+                    mediaItem.previewFileName = rawData.previewFileName || "";
+                    mediaItem.fileUrl = rawData.fileUrl || "";
+                } else {
+                    mediaItem.relativeUri = rawData.fileName || "";
+                    mediaItem.width = Number(rawData.width) || 0;
+                    mediaItem.height = Number(rawData.height) || 0;
+                }
+                return mediaItem;
+            });
+        };
+        var mediaTypeMap = {
+            photos: MediaManager.categories.IMAGE,
+            clipart: MediaManager.categories.IMAGE,
+            backgrounds: MediaManager.categories.BG_IMAGE,
+            audio: MediaManager.categories.MUSIC,
+            music: MediaManager.categories.MUSIC,
+            documents: MediaManager.categories.DOCUMENT,
+            swf: MediaManager.categories.FLASH,
+            video: MediaManager.categories.VIDEO,
+            shape: MediaManager.categories.VECTOR_ART
+        };
+        this.openMediaDialog = function(args, callback, isSuperApp) {
+            if (!mediaTypeMap[args.mediaType]) {
+                args.mediaType = "photos";
+            }
+            MediaManager.open(mediaTypeMap[args.mediaType], MediaManagerApi.origins.ADI, {
+                onSuccess: function(result) {
+                    var items = isSuperApp ? restoreRelativeUri(result.items) : transformRawData(result.items);
+                    callback(args.multiSelection ? items : items[0]);
+                },
+                onCancel: function() {
+                    return callback({
+                        wasCancelled: true
+                    });
+                },
+                multiSelect: !!args.multiSelection
+            });
+        };
+        this.open = this.openMediaDialog;
+        this.openAsSuperApp = function(args, callback) {
+            return _this.openMediaDialog(args, callback, true);
+        };
+    }
+    angular.module("sdkCommons").service("sdkMediaManager", SdkMediaManager).factory("MediaManager", function() {
+        return MediaManager;
+    }).factory("MediaManagerApi", function() {
+        return MediaManagerApi;
+    });
+})();
+
+"use strict";
+
+angular.module("sdkCommons").service("dashboardSdkScrollToHandler", [ "$window", function dashboardSdkScrollTo($window) {
+    return function(data) {
+        $window.scrollTo(data.x, data.y);
+    };
+} ]);
+
+var SdkBilling = function() {
+    SdkBilling.$inject = [ "$injector", "$http", "sdkConfig" ];
+    function SdkBilling($injector, $http, sdkConfig) {
+        this.$injector = $injector;
+        this.$http = $http;
+        this.sdkConfig = sdkConfig;
+    }
+    SdkBilling.prototype.hasPrice = function(price) {
+        return !!price && parseFloat(price) !== 0;
+    };
+    SdkBilling.prototype.buildPackageUrl = function(startUrl, vendorId, appDefId, instanceId, cycle) {
+        return startUrl + "?appInstanceId=" + instanceId + "&appDefinitionId=" + appDefId + "&paymentCycle=" + cycle.toUpperCase() + "&vendorProductId=" + vendorId;
+    };
+    SdkBilling.prototype.getProducts = function(options, callback) {
+        var _this = this;
+        var appDefId = options.appDefinitionId || this.sdkConfig.getAppDefId();
+        if (!appDefId) {
+            callback({
+                error: true,
+                message: "Invalid application definition id"
+            });
+        } else {
+            var instanceId_1 = this.sdkConfig.getAppInstanceId()(appDefId);
+            this.$http.get("/_api/app-market-api/apps/" + appDefId + "/priced-app", {
+                params: {
+                    fields: [ "price", "packages", "purchaseStartUrl", "billingPanelType" ].toString()
+                }
+            }).then(function(res) {
+                var packages = res.data.packages;
+                var startUrl = res.data.purchaseStartUrl;
+                packages.forEach(function(pckg) {
+                    var buildPackageUrlCurried = _.curry(_this.buildPackageUrl)(startUrl, pckg.id, appDefId, instanceId_1);
+                    pckg.monthly.url = _this.hasPrice(pckg.monthly.price) && buildPackageUrlCurried("MONTHLY");
+                    pckg.yearly.url = _this.hasPrice(pckg.yearly.price) && buildPackageUrlCurried("YEARLY");
+                    pckg.oneTime.url = _this.hasPrice(pckg.oneTime.price) && buildPackageUrlCurried("ONE_TIME");
+                    pckg.currencyCode = res.data.price.currencyCode;
+                    pckg.currencySymbol = res.data.price.currencySymbol;
+                });
+                return callback({
+                    packages: packages
+                });
+            });
+        }
+    };
+    return SdkBilling;
+}();
+
+angular.module("sdkCommons").service("sdkBilling", SdkBilling);
+
+var SdkAppEngaged = function() {
+    SdkAppEngaged.$inject = [ "wixBiLogger", "premiumIntents", "sdkConfig" ];
+    function SdkAppEngaged(wixBiLogger, premiumIntents, sdkConfig) {
+        this.wixBiLogger = wixBiLogger;
+        this.premiumIntents = premiumIntents;
+        this.sdkConfig = sdkConfig;
+    }
+    SdkAppEngaged.prototype.sendEngagedBI = function(options) {
+        var appDefId = this.sdkConfig.getAppDefId();
+        var instanceId = this.sdkConfig.getAppInstanceId()(appDefId);
+        if (options && options.premiumIntent && this.premiumIntents.indexOf(options.premiumIntent) > -1) {
+            this.wixBiLogger.log(this.wixBiLogger.events.APP_ENGAGED, {
+                app_id: appDefId,
+                instance_id: instanceId,
+                premium_intent: options.premiumIntent
+            });
+        }
+    };
+    return SdkAppEngaged;
+}();
+
+angular.module("sdkCommons").service("sdkAppEngaged", SdkAppEngaged);

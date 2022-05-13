@@ -4,31 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="sitio web oficial del Club Belgrano de la ciudad de San Nicolas de los Arroyos">
+    <meta name="keywords" content="deportes, basquet, san nicolas, liga federal, Club belgrano">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="../style.css">
     <script src="https://kit.fontawesome.com/6e3411cd14.js" crossorigin="anonymous"></script>
     <link rel="icon" type="image/x-icon" href="../imagenes/logoPP.jpg" border-radius: 100px>
     <link rel="stylesheet" href="../css/main.css">
-    <title>CBSN</title>
+    <title>CBSN/contacto</title>
 </head>
 <body>
   <header class="cabecera">
-    <!-- <a class="navbar-brand" href="#">
-      <img class="logoP" src="../imagenes/logo2.png" alt="icono ">
-  </a> -->
-  <a href="https://mail.google.com/mail/u/0/?pli=1#inbox">
-    <img src="./imagenes/gmail.jpg" alt="" class="logoGmail">
-  </a>
+    <div class="text-center">
+      <a class="navbar-brand" href="#">
+        <img class="logoP" src="../imagenes/logo2.png" alt="icono ">
+    </a>
+  </div>
       <nav class="navbar navbar-expand-lg navbar-light barraNav ">
-        <a class="navbar-brand col-md-2 col-sm-2" href="#">
-          <img class="logoP" src="../imagenes/logo2.png" alt="icono ">
-      </a>
           <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav navbar-center ">
+              <ul class="navbar-nav navbar-center mx-auto ">
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="../index.html">INICIO</a>
                 </li>
@@ -61,16 +59,16 @@
            </div>
         </nav>
   </header> 
-    <main class="mainContacto ">
-      <section class="section">
-        <container clas>
-        <div class="datosUbicacion ">
+    <main>
+      <section class="section container-fluid">
+        <div class="row">
+        <div class="datosUbicacion col-lg-5 col-md-12 col-sm-12 ">
           <h2 >Contactanos</h2>
           <h6>Pellegrini 476,B2900 DMJ, Provincia BS AS, Argentina</h6>
           <h6>0336 445-4540</h6>
           <iframe class="mapaUbi" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3333.276150747003!2d-60.223823485130204!3d-33.337734599121696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b767855bb456eb%3A0x76b58e866dc3ba09!2sClub%20Belgrano%20San%20Nicolas!5e0!3m2!1ses-419!2sar!4v1651008507071!5m2!1ses-419!2sar" width="30" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
-        <div>
+        <div class="col-lg-7 col-md-12 col-sm-12 my-3">
           <form class="row  formulario ">
             <div class="col-lg-6 col-md-12 col-sm-12">
               <label for="inputEmail4" class="form-label">Nombre y apellido</label>
@@ -88,7 +86,7 @@
               <label for="inputAddress2" class="form-label">Localidad</label>
               <input type="text" class="form-control" id="inputAddress2" >
             </div>
-            <div class="col-12 col-md-12 col-sm-12">
+            <div class="col-12 col-md-12 col-sm-12 my-1">
               <label for="inputAddress2" class="form-label">Mensaje</label>
               <input type="text" class="form-control message" id="inputAddress2" >
             </div>
@@ -97,30 +95,35 @@
             </div>
           </form>
         </div>
-        </container> 
+      </div>
       </section>    
     </main>
-    <footer class="container-fluid" >
-      
-      <img class="logoFooter" src="../imagenes/logoPP.jpg" alt="logofooter">
-        <ul class="redesFooter">
-            <li><form action=""></form>
-                <a href="www.facebook.com" alt=" facebok" > <i class="fa-brands fa-facebook"></i></a>
-            </li>
-            <li>
-                <a href="www.instagram.com"alt="instagram"><i class="fa-brands fa-instagram"></i> </a>
-            </li>
-            <li>
-                <i class="fa-brands fa-whatsapp"></i>
-            </li>
-            <li>
-                <i class="fa-solid fa-location-pin"> </i>
-            </li>
-        </ul>
-        
-        <p class=datosUbi> Pellegrini 476,B2900 DMJ, Provincia BS AS, Argentina 0336 445-4540</p>
-    
-    </footer>
+    <footer class="container-fluid position-relative bottom-0" >
+      <div class="row">
+          <div class="col-lg-4">
+        <img class="logoFooter" src="../imagenes/logoPP.jpg" alt="logofooter">
+      </div>
+      <div class="col-lg-4 active"> 
+        <p class="text-center"> Pellegrini 476,B2900 DMJ, Provincia BS AS, Argentina 0336 445-4540</p>
+        </div>
+        <div class="col-lg-4 text-center">
+          <ul class="redesFooter">
+              <li><form action=""></form>
+                  <a href="www.facebook.com" alt=" facebok" > <i class="fa-brands fa-facebook"></i></a>
+              </li>
+              <li>
+                  <a href="www.instagram.com"alt="instagram"><i class="fa-brands fa-instagram"></i> </a>
+              </li>
+              <li>
+                  <i class="fa-brands fa-whatsapp"></i>
+              </li>
+              <li>
+                  <i class="fa-solid fa-location-pin"> </i>
+              </li>
+          </ul>
+          </div>
+        </div>
+      </footer>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     
 </body>

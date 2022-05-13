@@ -1,22 +1,11 @@
-.mainContacto {
-  position: relative;
-  top: 80px; }
-
-.formulario {
-  height: 150px;
-  width: 800px;
-  position: relative;
-  left: 500px;
-  bottom: 420px; }
-
-.datosUbicacion {
-  position: relative;
-  left: 20px;
-  height: 400px;
-  width: 30%; }
+.redesFooter {
+  list-style: none;
+  display: flex;
+  justify-content: space-around; }
 
 .datosUbicacion h2 {
-  color: red; }
+  color: red;
+  font-size: 26px; }
 
 .message {
   height: 110px; }
@@ -26,95 +15,45 @@
   left: 0px;
   width: 400px; }
 
-@media only screen and (max-width: 768px) {
-  .section {
-    display: flex;
-    flex-direction: column; } }
-
 footer {
-  position: absolute;
-  bottom: 0px;
-  display: grid;
-  align-items: center;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
-  grid-template-areas: "logoFooter datosUbi redes";
-  padding: 0px 0px 0px 0px;
   background-color: red; }
 
 .logoFooter {
   border-radius: 80px;
-  height: 80px;
-  grid-area: logoFooter; }
+  height: 80px; }
 
-.redesFooter {
-  list-style: none;
-  grid-area: redes;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-areas: ". whatsapp instagram facebook ubicacion .";
-  justify-items: end; }
-
-.fa-brands fa-whatsapp {
-  grid-area: whatsapp; }
-
-.fa-brands fa-instagram {
-  grid-area: instagram; }
-
-.fa-solid fa-location-pin {
-  grid-area: ubicacion; }
-
-.datosUbi {
-  grid-area: datosUbi;
-  color: white; }
-
-a {
+.redesFooter a {
   color: black; }
 
 .tituloInstalaciones {
   text-align: center;
-  color: red; }
+  color: red;
+  font-size: 26px; }
 
 .portadaInstalaciones {
   height: 250px;
   background-image: url(../imagenes/30demayo.jpg);
   background-position: center; }
 
-.navbar-nav.navbar-center {
-  position: absolute;
-  left: 50%;
-  transform: translatex(-50%);
-  bottom: 0px;
-  background-color: white; }
-
 .barraNav {
   height: 120px;
-  width: 100%;
   top: 0px; }
 
 .logoP {
-  height: 70px;
-  position: relative;
-  left: 650px;
-  bottom: 15px; }
-
-.logoGmail {
-  height: 20px;
-  width: 20px;
-  position: absolute;
-  right: 10px;
-  bottom: 15px; }
+  height: 70px; }
 
 .tituloIndex {
   color: red;
-  text-align: center;
-  position: relative; }
+  font-size: 26px; }
 
-.portadaHistoria {
-  height: 400px; }
+.redesFooter {
+  list-style: none;
+  display: flex;
+  justify-content: space-around; }
 
 .tituloHistoria {
-  color: red; }
+  color: red;
+  font-size: 26px; }
 
 .pieTexto {
   color: black;
@@ -122,9 +61,23 @@ a {
   text-align: left;
   left: 4px; }
 
-.contenedor {
-  position: relative;
-  width: 70%; }
-
 .subTitulos {
   color: red; }
+
+.titulosAside {
+  color: red; }
+
+.mainHIstoria p {
+  font-size: 14px; }
+
+.datosCom {
+  color: grey;
+  font-size: 14px; }
+
+@media only screen and (max-width: 768px) {
+  .datosCom {
+    position: relative;
+    margin-bottom: 150px; }
+  .mainHIstoria {
+    margin-left: 3px;
+    margin-right: 3px; } }

@@ -1,6 +1,7 @@
 .tituloInstalaciones{
     text-align: center;
-    color: red;
+    color: $color-principal;
+    font-size: map-get($tamanio-tipografia,titulos );
 }
 .portadaInstalaciones{
     height: 250px;
