@@ -7,13 +7,15 @@
     color: black;
     font-size: 16px;
     text-align: left;
-    left: 4px;
 }
 .subTitulos{
     color: $color-principal;
 }
 .titulosAside{
     color: $color-principal;
+}
+.row{
+    max-width: 99vw;
 }
 .mainHIstoria p{
     font-size: map-get($tamanio-tipografia, parrafo );

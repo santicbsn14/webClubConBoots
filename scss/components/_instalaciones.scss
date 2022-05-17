@@ -2,9 +2,20 @@
     text-align: center;
     color: $color-principal;
     font-size: map-get($tamanio-tipografia,titulos );
+    margin-right: 0px;
 }
 .portadaInstalaciones{
     height: 250px;
     background-image: url(../imagenes/30demayo.jpg);
     background-position: center;
+}
+@media only screen and (max-width:768px){
+    .datosCom{
+    position: relative;
+    margin-bottom: 450px;
+    }
+    .mainInstalaciones{
+        margin-left: 3px;
+        margin-right: 3px;
+    }
 }
