@@ -1,3 +1,7 @@
+body{
+  min-height: 100vh;
+  position: relative;
+}
 .redesFooter {
   list-style: none;
   display: flex;
@@ -28,19 +32,32 @@ footer {
 .tituloInstalaciones {
   text-align: center;
   color: red;
-  font-size: 26px; }
+  font-size: 26px;
+  margin-right: 0px; }
 
 .portadaInstalaciones {
   height: 250px;
   background-image: url(../imagenes/30demayo.jpg);
   background-position: center; }
 
+@media only screen and (max-width: 768px) {
+  .datosCom {
+    position: relative;
+    margin-bottom: 450px; }
+  .mainInstalaciones {
+    margin-left: 3px;
+    margin-right: 3px; } }
+
 .barraNav {
   height: 120px;
   top: 0px; }
 
 .logoP {
-  height: 70px; }
+  height: 90px; }
+
+@media only screen and (max-width: 991px) {
+  .menuHambur {
+    background-color: red; } }
 
 .tituloIndex {
   color: red;
@@ -58,14 +75,16 @@ footer {
 .pieTexto {
   color: black;
   font-size: 16px;
-  text-align: left;
-  left: 4px; }
+  text-align: left; }
 
 .subTitulos {
   color: red; }
 
 .titulosAside {
   color: red; }
+
+.row {
+  max-width: 99vw; }
 
 .mainHIstoria p {
   font-size: 14px; }
@@ -81,3 +100,14 @@ footer {
   .mainHIstoria {
     margin-left: 3px;
     margin-right: 3px; } }
+
+.tituloDis {
+  font-size: 26px;
+  color: red; }
+
+.carousel-inner img {
+  width: 500px;
+  height: 400px;
+  border: solid;
+  color: black;
+  margin-bottom: 10px; }
