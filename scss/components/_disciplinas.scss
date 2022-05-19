@@ -1,10 +1,58 @@
+@media screen and (min-width:950px){
+.infoDepo{
+    padding-left: 150px;
+    padding-right: 150px;
+}
+}
 .tituloDis{
     font-size: map-get($tamanio-tipografia,titulos );
     color: $color-principal;
 }
+.carousel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 40px;
+    width: 350px;
+}
+.carousel span{
+    color: black;
+}
 .carousel-inner img{
- width: 500px;
- height: 400px;
-border: solid; color: black;
-margin-bottom: 10px;
-}   
+    justify-content: center;
+    align-items: center;
+    height: 350px;
+    border: solid; color: black;
+}
+.centrado{
+ @extend %centrado;
+}
+.deportes h5{
+    color: $color-principal;
+    font-size: map-get($tamanio-tipografia, subtitulos );
+}
+.deportes p{
+    font-size: map-get($tamanio-tipografia, parrafo );
+}
+.botonsito{
+    color: $color-principal;
+}
+video{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 30px;
+}
+video source{
+    border: solid 10px; color: black;
+}
+.horariosFut{
+    width: 350px;
+    height: 350px;
+    border: solid;color: black;
+}
+.contactonat{
+    @extend %centrado;
+    width: 350px;
+    height: 350px;
+}

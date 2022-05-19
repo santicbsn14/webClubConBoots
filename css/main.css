@@ -1,11 +1,12 @@
-body{
-  min-height: 100vh;
-  position: relative;
-}
 .redesFooter {
   list-style: none;
   display: flex;
   justify-content: space-around; }
+
+.centrado, .contactonat {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
 
 .datosUbicacion h2 {
   color: red;
@@ -48,16 +49,20 @@ footer {
     margin-left: 3px;
     margin-right: 3px; } }
 
+.mainInstalaciones p {
+  font-size: 14px; }
+
 .barraNav {
   height: 120px;
   top: 0px; }
 
 .logoP {
-  height: 90px; }
+  height: 90px;
+  width: 90px; }
 
 @media only screen and (max-width: 991px) {
   .menuHambur {
-    background-color: red; } }
+    background-color: white; } }
 
 .tituloIndex {
   color: red;
@@ -67,6 +72,11 @@ footer {
   list-style: none;
   display: flex;
   justify-content: space-around; }
+
+.centrado, .contactonat {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
 
 .tituloHistoria {
   color: red;
@@ -101,13 +111,62 @@ footer {
     margin-left: 3px;
     margin-right: 3px; } }
 
+@media screen and (min-width: 950px) {
+  .infoDepo {
+    padding-left: 150px;
+    padding-right: 150px; } }
+
 .tituloDis {
   font-size: 26px;
   color: red; }
 
+.carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 40px;
+  width: 350px; }
+
+.carousel span {
+  color: black; }
+
 .carousel-inner img {
-  width: 500px;
-  height: 400px;
+  justify-content: center;
+  align-items: center;
+  height: 350px;
   border: solid;
-  color: black;
-  margin-bottom: 10px; }
+  color: black; }
+
+.deportes h5 {
+  color: red;
+  font-size: 20px; }
+
+.deportes p {
+  font-size: 14px; }
+
+.botonsito {
+  color: red; }
+
+video {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 30px; }
+
+video source {
+  border: solid 10px;
+  color: black; }
+
+.horariosFut {
+  width: 350px;
+  height: 350px;
+  border: solid;
+  color: black; }
+
+.contactonat {
+  width: 350px;
+  height: 350px; }
+
+html {
+  min-height: 100%;
+  position: relative; }

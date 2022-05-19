@@ -5,3 +5,7 @@
 @import"./components/index";
 @import"./components/historia";
 @import"./components/disciplinas";
+html {
+      min-height: 100%;
+      position: relative;
+}

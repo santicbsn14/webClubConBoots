@@ -10,3 +10,8 @@ $tamanio-tipografia:(
     display: flex;
     justify-content: space-around;
 };
+%centrado{
+    display: flex;
+    justify-content: center;
+    align-items: center
+};

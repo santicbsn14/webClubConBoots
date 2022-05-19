@@ -19,3 +19,6 @@
         margin-right: 3px;
     }
 }
+.mainInstalaciones p{
+    font-size: map-get($tamanio-tipografia,parrafo );
+}
