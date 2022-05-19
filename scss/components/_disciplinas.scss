@@ -2,23 +2,27 @@
 .infoDepo{
     padding-left: 150px;
     padding-right: 150px;
+    padding-bottom: 40px;
 }
+}
+.futbol{
+    padding-bottom: 115px;
 }
 .tituloDis{
     font-size: map-get($tamanio-tipografia,titulos );
     color: $color-principal;
 }
-.carousel{
+.carouselDis{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 40px;
     width: 350px;
+    padding-bottom: 30px;
 }
-.carousel span{
-    color: black;
+.visually-hidden{
+    color:black;
 }
-.carousel-inner img{
+.carousel-innerDis img{
     justify-content: center;
     align-items: center;
     height: 350px;
@@ -36,15 +40,6 @@
 }
 .botonsito{
     color: $color-principal;
-}
-video{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 30px;
-}
-video source{
-    border: solid 10px; color: black;
 }
 .horariosFut{
     width: 350px;

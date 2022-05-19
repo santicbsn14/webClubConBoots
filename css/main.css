@@ -36,15 +36,23 @@ footer {
   font-size: 26px;
   margin-right: 0px; }
 
-.portadaInstalaciones {
-  height: 250px;
-  background-image: url(../imagenes/30demayo.jpg);
-  background-position: center; }
+.carouselInstala img {
+  width: 500px;
+  height: 500px;
+  border: solid;
+  color: black; }
+
+.carouselDos {
+  padding-bottom: 35px; }
 
 @media only screen and (max-width: 768px) {
-  .datosCom {
-    position: relative;
-    margin-bottom: 450px; }
+  .datosCom p {
+    margin-bottom: 180px; }
+  .carouselInstala img {
+    width: 350px;
+    height: 350px;
+    border: solid;
+    color: black; }
   .mainInstalaciones {
     margin-left: 3px;
     margin-right: 3px; } }
@@ -106,7 +114,7 @@ footer {
 @media only screen and (max-width: 768px) {
   .datosCom {
     position: relative;
-    margin-bottom: 150px; }
+    margin-bottom: 50px; }
   .mainHIstoria {
     margin-left: 3px;
     margin-right: 3px; } }
@@ -114,23 +122,27 @@ footer {
 @media screen and (min-width: 950px) {
   .infoDepo {
     padding-left: 150px;
-    padding-right: 150px; } }
+    padding-right: 150px;
+    padding-bottom: 40px; } }
+
+.futbol {
+  padding-bottom: 115px; }
 
 .tituloDis {
   font-size: 26px;
   color: red; }
 
-.carousel {
+.carouselDis {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-bottom: 40px;
-  width: 350px; }
+  width: 350px;
+  padding-bottom: 30px; }
 
-.carousel span {
+.visually-hidden {
   color: black; }
 
-.carousel-inner img {
+.carousel-innerDis img {
   justify-content: center;
   align-items: center;
   height: 350px;
@@ -146,16 +158,6 @@ footer {
 
 .botonsito {
   color: red; }
-
-video {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: 30px; }
-
-video source {
-  border: solid 10px;
-  color: black; }
 
 .horariosFut {
   width: 350px;

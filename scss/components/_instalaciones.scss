@@ -4,21 +4,27 @@
     font-size: map-get($tamanio-tipografia,titulos );
     margin-right: 0px;
 }
-.portadaInstalaciones{
-    height: 250px;
-    background-image: url(../imagenes/30demayo.jpg);
-    background-position: center;
+.carouselInstala img{
+    width: 500px;
+    height: 500px;
+    border: solid; color: black;
+}
+.carouselDos{
+    padding-bottom: 35px;
 }
 @media only screen and (max-width:768px){
-    .datosCom{
-    position: relative;
-    margin-bottom: 450px;
+    .datosCom p{
+    margin-bottom: 180px;
+    }
+    .carouselInstala img{
+        width: 350px;
+        height: 350px;
+        border: solid; color: black;
     }
     .mainInstalaciones{
         margin-left: 3px;
         margin-right: 3px;
     }
 }
-.mainInstalaciones p{
-    font-size: map-get($tamanio-tipografia,parrafo );
+.mainInstalaciones p{    font-size: map-get($tamanio-tipografia,parrafo );
 }
