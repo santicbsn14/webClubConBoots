@@ -9,6 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="../style.css">
     <script src="https://kit.fontawesome.com/6e3411cd14.js" crossorigin="anonymous"></script>
+    
     <link rel="icon" type="image/x-icon" href="../imagenes/logoPP.jpg" border-radius: 100px>
     <link rel="stylesheet" href="../css/main.css">
     <title>CBSN/disciplinas</title>
@@ -16,8 +17,8 @@
 <body >
   <header class="cabecera">
     <div class="text-center">
-      <a class="navbar-brand" href="#">
-        <img class="logoP" src="../imagenes/logoNuevo.jpg" alt="icono ">
+      <a class="navbar-brand" href="../index.html">
+        <img class="logoP mx-auto"  src="../imagenes/logoNuevo.jpg" alt="icono ">
     </a>
   </div>
       <nav class="navbar navbar-expand-lg navbar-light barraNav ">
@@ -30,6 +31,9 @@
                 <li class="nav-item">
                   <a class="nav-link" aria-current="page" href="../index.html">INICIO</a>
                 </li>
+                <li>
+                  <a class="nav-link" href="historia.html">HISTORIA</a>
+                </li>
                 <li class="nav-item ">
                   <a class="nav-link active" href="#">DISCIPLINAS</a>
                 </li>
@@ -39,125 +43,230 @@
                 <li class="nav-item">
                   <a class="nav-link" href="contacto.html">CONTACTO</a>
                 </li>
-                <li>
-                  <a class="nav-link" href="historia.html">HISTORIA</a>
               </ul>
             </div>
            </div>
         </nav>
   </header>
-  <main class="mainDisciplinas">
-    <h2 class="text-center tituloDis">Disciplinas</h2>
-  <section class="row my-5 mx-3">
-     <div class="col-lg-12 infoDepo">
+  <main class="mainDisciplinas my-5 row">
+    <h2 class=" my-1 text-center tituloDis">Disciplinas</h2>
           <div class="text-center deportes col-lg-12 col-md-12 col-sm-12 "> 
        `     <p><strong> El club ofrece un sinfin de disciplinas con sus espacios correspondientes, para poder entrenarlas y disfrutarlas de la mejor manera posible. Creemos que el deporte es una parte importante en la educacion de nuestros jovenes y tambien en la salud de los mismos.</strong></p>
-             <p>En la calle Pellegrini, al 476, se encuentra nuestra sede principal, en la que se llevan a cabo gran parte de los deportes de nuestra institucion. Ellos son el basquet, handball, voley, natacion, gimnasia artistica y el gimnasio de musculacion.</p>
-             <p>Te mostramos los espacios en los que se llevan a cabo cada uno de los mencionados, con sus respectivos horarios:</p>
+             <p>En la calle Pellegrini, al 476, se encuentra nuestra sede principal, en la que se llevan a cabo gran parte de los deportes de nuestra institucion. Ellos son el basquet, handball, voley, natacion, futbol infantil, y el gimnasio de musculacion.</p>
+             <p>Te mostramos los espacios en los que se llevan a cabo cada uno de los mencionados, con sus respectivos horarios y contactos necesarios:</p>
           </div>
          
          <!-- NATACION -->
-        <div class="natacion centrado row col-lg-12 col-md-12 col-sm-12 ">
-            <div class="text-center deportes my-2 col-lg-12" >
-                  <h5>Natacion</h5>
+        <div class=" col-lg-12 col-md-12 col-sm-12 row my-2 ">
+            <div class="text-center deportes col-lg-12" >
+                  <h5 class="my-4">Natacion</h5>
                   <p>Cabe destacar que la natacion es uno de los deportes en los que se destaca la institucion, ya que a lo largo de los años se han formado muchos deportistas, que han conseguido logros nacionales, como tambien internacionales. Ofrecemos distintos dias y horarios para la practica orientada a la ambientacion del deporte como tambien el alto rendimiento.</p>
                   <p>Constamos de un natatorio olimpico de 25mts, equipado con vestuarios completos a disposicion de cada deportista. </p>
                   <p><strong>En todo momento que se encuentre el natatorio abierto, estara la presencia de al menos un guardavidas y un profesor, para preservar la salud de nuestros socios.</strong></p>
             </div>
-            <div id="carouselExampleControls" class="carousel carouselDis slide col-lg-12" data-bs-ride="carousel">
-             <div class="carousel-inner carousel-innerDis">
-               <div class="carousel-item active">
-             <img src="../imagenes/natatorio.jpg" class="d-block w-100" alt="...">
-               </div>
-               <div class="carousel-item">
-             <img src="../imagenes/horariosNatacion.jpg" class="d-block w-100" alt="...">
-               </div>
-               <div class="carousel-item">
-             <img src="../imagenes/HorariosNatacion2.jpg" class="d-block w-100" alt="...">
-               </div>
-               <div class="carousel-item">
-                <img src="../imagenes/contactonat.png" class="d-block w-100" alt="...">
+            
+                  <!-- CARD HORARIOS -->
+                <div class="card mx-auto my-1 col-lg-4 " style="width:320px; height:320px;">
+                  <div id="carouselExampleControls" class="carousel  slide mx-auto"  style=" height: 275px;" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="../imagenes/horariosNatacion.jpg" class="d-block w-100 imgCarru" style=" height: 275px; " alt="horario nataciion">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="../imagenes/HorariosNatacion2.jpg" class="d-block w-100 imgCarru" style="height: 275px; " alt="horario natacionDos">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
                   </div>
-             </div> 
-             <button class="carousel-control-prev " type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-           <span class="visually-hidden">Previous</span>
-             </button>
-             <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-             <span class="visually-hidden">Next</span>
-            </button>
-          </div>  
-      </div>
+                  <div class="card-body">
+                    <p class="card-text text-center ">Horarios de lunes a viernes.</p>
+                  </div>
+                </div>
+                <!-- CARD NATATORIO -->
+                <div class="card mx-auto my-1 text-center col-lg-4 " style="width:320px; height:320px;">
+                  <img src="../imagenes/natatorio.jpg" class="card-img-top mx-auto" style=" height: 275px; " alt="natatorio cayetano cavalli">
+                 <div class="card-body">
+                    <p class="card-text text-center my-2">Natatorio "Cayetano Cavalli"</p>
+                 </div>
+               </div>
+               <!-- CARD CONTACTO NATACION -->
+                <div class="card mx-auto my-1 col-lg-4 " style="width:320px; height:320px">
+                  <img src="../imagenes/contactonat.png" class="card-img-top mx-auto" style=" height: 275px; "  alt="contacto profesores">
+                  <div class="card-body">
+                    <p class="card-text text-center ">Contacto directo con los profes.</p>
+                  </div>
+                </div>
+            
+        </div>
           <!-- BASQUET -->
-        <div class="basquet centrado row col-lg-12 col-md-12 col-sm-12 my-2"> 
+        <div class="row col-lg-12 col-md-12 col-sm-12 my-2"> 
             <div class="text-center deportes col-lg-12" >
-               <h5>Basquet</h5>
-               <p> El basquet, es probablemente es el deporte mas representativo del club, ya que gracias a el tomamos gran "relevancia nacional" como institucion, al competir durante once años en la maxima categoria de nuestro pais. </p>
+               <h5 class="my-4">Basquet</h5>
+               <p> El basquet, probablemente, es el deporte mas representativo del club, ya que gracias a el tomamos gran "relevancia nacional" como institucion, al competir durante once años en la maxima categoria de nuestro pais. </p>
                <p>La formacion de nuestros deportitstas, desde edades tempranas hasta llegar al profesionalismo, es nuestro sello. Lo logramos fomentando la cultura del esfuerzo y el perfeccionamiento de los diferentes aspectos que debe tener un deportista(fisicos, tecnicos, psicologicos y estrategicos).</p>
                <p>Por suerte, constamos de un gimnasio que va de la mano de la historia del deporte en el club, siendo uno de los mas grandes y importantes de la region. El gimnasio "Fortunato Bonelli"</p>                
             </div>
-         <div id="carouselExampleIndicators" class="carousel carouselDis slide col-lg-12" data-bs-ride="carousel">
-          <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-          </div>
-          <div class="carousel-inner  carousel-innerDis">
-            <div class="carousel-item active">
-              <img src="../imagenes/fortunato.jpg" class="d-block w-100" alt="...">
+              <!-- CARD HORARIOS BASQUET -->
+              <div class="card mx-auto my-1 col-lg-4  " style="width:320px; height:320px;">
+                <img src="../imagenes/horariosBasquet.jpg" class="card-img-top mx-auto" style=" height: 275px; " alt="horarios basquet">
+               <div class="card-body">
+                  <p class="card-text">Horarios de lunes a viernes.</p>
+               </div>
+             </div>
+            <!-- CARD "FORTUNATO BONELLI" -->
+            <div class="card mx-auto my-1 col-lg-4 " style="width:320px; height:320px;">
+              <img src="../imagenes/fortunato.jpg" class="card-img-top mx-auto" style=" height: 275px; " alt="cancha de basquet">
+             <div class="card-body">
+                <p class="card-text">Estadio "Fortunato Bonelli"</p>
+             </div>
+           </div>
+           <!-- CARD CONTACTO BASQUET -->
+            <div class="card mx-auto my-1 col-lg-4 " style="width:320px; height:320px">
+              <img src="../imagenes/ContactoBas.png" class="card-img-top mx-auto" style=" height: 275px; "  alt="contacto basquet">
+              <div class="card-body">
+                <p class="card-text">Contacto directo con los profes.</p>
+              </div>
             </div>
-            <div class="carousel-item">
-              <img src="../imagenes/horariosBasquet.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-              <img src="../imagenes/ContactoBas.png" class="d-block w-100" alt="...">
-            </div>
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span> 
-          </button>
-         </div/imagenes/>
         </div>
         <!-- FUTBOL -->
-      <div class="futbol col-lg-12  col-md-12 col-sm-12 row my-2 centrado">
+      <div class=" col-lg-12  col-md-12 col-sm-12 row my-2 ">
           <div class="text-center deportes col-lg-12" >
-             <h5>Futbol</h5>
+             <h5 class="my-4">Futbol</h5>
              <p>El fútbol fue la principal actividad del club, desde sus comienzos participó en los certámenes locales, logrando en 1932 el ascenso a la primera división local. Ya en primera división, el primer título logrado fue el "Preparación 1976" al vencer a Defensores de Belgrano de Villa Ramallo en la final.</p>
-             <p>La praxtica del futbol, principalmente, se lleva a cabo en el club de campo del club, que se encuentra en el km 26 de la autopista Rosario-Buenos Aires. Ahi se llevan a cabo las practicas y los partidos de todas las categorias inferiores del club y tambien la primer categoria.  </p>
-             <p>Las categorias infantiles entrenan en la sede de calle morteo( ex Argentino Oeste). El futbol infaltil abarca las edades desde los 5 años hasta los 12, ya que luego es la transicion hacia la cancha de once. </p>
+             <p>La practica de las categorias inferiores del futbol, principalmente, se lleva a cabo en el club de campo del club, que se encuentra en el km 26 de la autopista Rosario-Buenos Aires. Ahi se llevan a cabo las practicas y los partidos de todas las categorias inferiores del club, como tambien la primer categoria.  </p>
+             <p>Las categorias infantiles entrenan en la sede principal del club (pellegrini 476). El futbol infaltil abarca las edades desde los 5 años hasta los 12. Una vez que los jovenes cumplen 13 años pasan a competir en cancha grande asi que pasan a tener las practicas en el club de campo. </p>
           </div>
-          <div id="carouselExampleIndicators" class="carousel carouselDis slide col-lg-12" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner carousel-innerDis">
-              <div class="carousel-item active">
-                <img src="../imagenes/2.png" class="d-block w-100" alt="...">
+            <!-- CARD HORARIOS FUTBOL -->
+            <div class="card mx-auto my-1 col-lg-4 " style="width:320px; height:320px;">
+              <div id="carouselExampleControlsFUT" class="carousel slide mx-auto" style=" height: 275px;" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="../imagenes/2.png" class="d-block w-100 imgCarru" style=" height: 275px; " alt="horarios futbol">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="../imagenes/horariosFut2.png" class="d-block w-100 imgCarru" style=" height: 275px; " alt="horarios futbol">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsFUT" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsFUT" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
               </div>
-              <div class="carousel-item">
-                <img src="../imagenes/CONTACTOFUT.png" class="d-block w-100" alt="...">
+             <div class="card-body">
+                <p class="card-text">Horarios de todas las categorias.</p>
+             </div>
+           </div>
+          <!-- CARD CANCHA FUTBOL-->
+          <div class="card mx-auto my-1 col-lg-4 " style="width:320px; height:320px;">
+            <img src="../imagenes/futbol.jpg" class="card-img-top mx-auto" style=" height: 275px; " alt="cancha futbol">
+           <div class="card-body">
+              <p class="card-text">Canchas futbol cinco de cesped sintetico"</p>
+           </div>
+         </div>
+         <!-- CARD CONTACTO FUTBOL -->
+          <div class="card mx-auto my-1 col-lg-4 " style="width:320px; height:320px">
+            <img src="../imagenes/CONTACTOFUT.png" class="card-img-top mx-auto" style=" height: 275px; "  alt="contacto futbol">
+            <div class="card-body">
+              <p class="card-text">Contacto directo con los profes.</p>
+            </div>
+          </div>
+      </div>
+          <!-- GIMNASIO -->
+      <div class="row col-lg-12 col-md-12 col-sm-12 my-2"> 
+            <div class="text-center deportes col-lg-12" >
+               <h5 class="my-4">Gimnasio de Musculacion</h5>
+               <p> Poseemos un gimnasio de pesas, equipado con los instrumentos necesarios, con todos los horarios cubiertos con profesores  capacitados para poder asistir a nuetros socios y deportistas</p>
+            </div>
+              <!-- CARD HORARIOS GIMNASIO -->
+              <div class="card mx-auto my-1 col-lg-4   " style="width:320px; height:320px;">
+                <img src="../imagenes/horariosGim.png" class="card-img-top mx-auto" style=" height: 275px; " alt="horariosGim">
+               <div class="card-body">
+                  <p class="card-text">Horarios de lunes a viernes.</p>
+               </div>
+             </div>
+            <!-- CARD "GIMNASIO DE PESAS" -->
+            <div class="card mx-auto my-1 col-lg-4 " style="width:320px; height:320px;">
+              <img src="../imagenes/gimnasioPesas.jpg" class="card-img-top mx-auto" style=" height: 275px; " alt="gimnasioPesas">
+             <div class="card-body">
+                <p class="card-text">Gimnasio de musculacion</p>
+             </div>
+           </div>
+           <!-- CARD CONTACTO GIMNASIO -->
+            <div class="card mx-auto my-1 col-lg-4 " style="width:320px; height:320px">
+              <img src="../imagenes/contactoGim.png" class="card-img-top mx-auto" style=" height: 275px; "  alt="contactoGim">
+              <div class="card-body">
+                <p class="card-text">Contacto directo con los profes.</p>
               </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-           </div/imagenes/>
-        </div>
-  </div>
-    </section>
+      </div>
+        <!-- HANDBALL -->
+        <div class="row col-lg-12 col-md-12 col-sm-12 my-2"> 
+          <div class="text-center deportes col-lg-12" >
+             <h5 class="my-4">Handball</h5>
+             <p> El handball es un deporte que forma parte del club, hace ya, muchos años, y el crecimiento que fue teniendo a lo largo de los años, provoca un gran orgullo en todos nosotros.</p>
+             <p>A continuacion, como en las demas disciplinas, les dejamos los horarios y contactos correspondientes para todo aquel que quiera comenzar a practicarlo.</p>                
+          </div>
+            <!-- CARD HORARIOS HANDBALL -->
+            <div class="card mx-auto my-1 col-lg-4 " style="width:320px; height:320px">
+              <img src="../imagenes/horariosHB.png" class="card-img-top mx-auto" style=" height: 275px; "  alt="contacto handball">
+              <div class="card-body">
+                <p class="card-text">Horarios de Lunes A viernes.</p>
+              </div>
+            </div>
+          <!-- CARD "SOCIOS FUNDADORES" -->
+          <div class="card mx-auto my-1 col-lg-4 " style="width:320px; height:320px;">
+            <img src="../imagenes/gimnasioSocioFundadores.jpg" class="card-img-top mx-auto" style=" height: 275px; " alt="gimnasioSocioFundadores">
+           <div class="card-body">
+              <p class="card-text">Gimnasio "Socios Fundadores"</p>
+           </div>
+         </div>
+         <!-- CARD CONTACTO HANDBALL -->
+          <div class="card mx-auto my-1 col-lg-4 " style="width:320px; height:320px">
+            <img src="../imagenes/contactoHB.png" class="card-img-top mx-auto" style=" height: 275px; "  alt="contacto handball">
+            <div class="card-body">
+              <p class="card-text">Contacto directo con los profes.</p>
+            </div>
+          </div>
+      </div>
+            <!-- VOLEY -->
+          <div class="row paraPadding col-lg-12 col-md-12 col-sm-12 my-2"> 
+              <div class="text-center deportes col-lg-12" >
+                 <h5 class="my-4">Voley</h5>
+                 <p> Este deporte, es de los mas nuevos en la institucion, ya que comenzo a llevarse a cabbo en el 2014. Desde ese año hasta hoy crecio muchisimo, teniendo un total de 200 jovenes Entrenandolo, y hasta contando con un primer equipo masculino, que compite en la liga de nuestra ciudad.</p>
+              </div>
+                <!-- CARD HORARIOS VOLEY -->
+                <div class="card mx-auto my-1 col-lg-4 col-md-12 col-sm-12" style="width:320px; height:320px">
+                  <img src="../imagenes/horariosVoley.png" class="card-img-top mx-auto" style=" height: 275px; "  alt="contacto handball">
+                  <div class="card-body">
+                    <p class="card-text">Horarios de Lunes a Viernes.</p>
+                  </div>
+                </div>
+              <!-- CARD "CANCHAS VOLEY" -->
+              <div class="card mx-auto my-1 col-lg-4 col-md-12 col-sm-12" style="width:320px; height:320px;">
+                <img src="../imagenes/FortuVoley.jpg" class="card-img-top mx-auto" style=" height: 275px; " alt="gimnasioSocioFundadores">
+               <div class="card-body">
+                  <p class="card-text">Estadio "Fortunato Bonelli"</p>
+               </div>
+             </div>
+             <!-- CARD CONTACTO VOLEY -->
+              <div class="card mx-auto my-1  col-lg-4 col-md-12 col-sm-12" style="width:320px; height:320px">
+                <img src="../imagenes/contactoVoley.png" class="card-img-top mx-auto" style=" height: 275px; "  alt="contacto handball">
+                 <div class="card-body">
+                  <p class="card-text">Contacto directo con los profes.</p>
+                </div>
+              </div>
+          </div>
   </main>
   <footer class="container-fluid  position-absolute bottom-0" >
     <div class="row">
@@ -165,7 +274,7 @@
       <img class="logoFooter" src="../imagenes/logoPP.jpg" alt="logofooter">
     </div>
     <div class="col-lg-4">
-      <p class="text-center"> Pellegrini 476,B2900 DMJ, Provincia BS AS, Argentina 0336 445-4540</p>
+      <p class="text-center textoFooter"> Pellegrini 476,B2900 DMJ, Provincia BS AS, Argentina 0336 445-4540</p>
       </div>
       <div class="col-lg-4 text-center">
         <ul class="redesFooter">

@@ -5,10 +5,13 @@
 }
 .logoP{
     height: 90px;
-    width: 90px;
+    width: 140px;
 }
 @media only screen and(max-width:991px){
     .menuHambur{
         background-color:white;
     }
+}
+.navbar .nav-link:hover{
+     color: rgb(252, 0, 0);
 }

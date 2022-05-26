@@ -1,4 +1,19 @@
-.tituloIndex{
+.titulo{
     color: $color-principal;
-    font-size: map-get($tamanio-tipografia,titulos );
+}
+.boton{
+    background-color: $color-principal;
+}
+.jumbotron{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.portadaIndex{
+padding-bottom: 50px;
+}
+@media only screen and (max-width:900px){
+    .mainIndex{
+        padding-bottom: 120px;
+    }
 }
