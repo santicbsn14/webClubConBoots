@@ -99,7 +99,12 @@ footer {
 
 @media only screen and (max-width: 900px) {
   .mainIndex {
-    padding-bottom: 120px; } }
+    padding-bottom: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 4px;
+    margin-left: 4px; } }
 
 .redesFooter {
   list-style: none;
@@ -183,7 +188,7 @@ footer {
 
 @media only screen and (max-width: 900px) {
   .paraPadding {
-    padding-bottom: 105px; } }
+    padding-bottom: 145px; } }
 
 html {
   min-height: 100%;

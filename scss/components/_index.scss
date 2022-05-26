@@ -15,5 +15,11 @@ padding-bottom: 50px;
 @media only screen and (max-width:900px){
     .mainIndex{
         padding-bottom: 120px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-right: 4px;
+        margin-left: 4px;
     }
+
 }
