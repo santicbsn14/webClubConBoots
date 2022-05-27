@@ -38,6 +38,15 @@ footer {
 .textoFooter {
   color: black; }
 
+.textoFooter:hover {
+  font-weight: bold; }
+
+i:hover {
+  color: yellow; }
+
+a {
+  text-decoration: none; }
+
 .tituloInstalaciones {
   text-align: center;
   color: red;
@@ -136,13 +145,17 @@ footer {
   color: grey;
   font-size: 14px; }
 
-@media only screen and (max-width: 768px) {
+.mainHIstoria {
+  margin-bottom: 60px; }
+
+@media only screen and (max-width: 900px) {
   .datosCom {
     position: relative;
-    margin-bottom: 50px; }
+    margin-bottom: 110px; }
   .mainHIstoria {
     margin-left: 3px;
-    margin-right: 3px; }
+    margin-right: 3px;
+    margin-bottom: 60px; }
   .mainDisciplinas {
     margin-left: 3px;
     margin-right: 3px; } }
